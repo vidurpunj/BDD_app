@@ -21,3 +21,7 @@ Rspec and capybra
  ==> rails g rspec:install
  * generate a binstub for rspec
  bundle binstub rspec-core
+ 
+ 
+ yarn add jquery bootstrap popper.js 
+ yarn add @fortawesome/fontawesome-free
