@@ -3,28 +3,24 @@
     <div class="alert alert-<%= key.eql?('notice') ? 'success' : 'danger' %>"><%= message %></div>
   <% end %>
   <h1>Articles</h1>
+  <% @articles.each do |article| %>
+    <div class="row">
+      <div class="col-md-6 bg-light">
+        <div>
+          <label>Title</label>: <%= article.title %>
+        </div>
+        <div>
+          <label>Body</label>: <%= article.body %>
+        </div>
+        <div>
+          <%= link_to article.title, article %> |
+          <%= link_to 'Edit', edit_article_path(article) %> |
+          <%= link_to 'Destroy', article, method: :delete, data: {confirm: 'Are you sure?'} %>
+        </div>
+      </div>
 
-  <table class="table table-bordered table-striped">
-    <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td><%= link_to 'Show', article %> |
-        <%= link_to 'Edit', edit_article_path(article) %> |
-        <%= link_to 'Destroy', article, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+    </div>
+  <% end %>
 
   <br>
   <%= link_to 'New Article', new_article_path %>

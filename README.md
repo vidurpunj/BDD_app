@@ -31,3 +31,8 @@ Rspec and capybra
   2. gem 'guard-rspec', '~> 4.7.3'
   3. gem 'guard-cucumber', '~> 3.0.0'
   __guard init__  
+  
+#  listing article
+- create two artcile
+- list the two artciles
+- expect title and body of both test articles
