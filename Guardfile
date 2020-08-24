@@ -31,6 +31,7 @@ cucumber_options = {
     # notification: false
 }
 
+=begin Removing guard for cucumber which is giving error  <Error creating formatter: Guard::Cucumber::NotificationFormatter (ArgumentError)>
 guard "cucumber", cucumber_options do
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$}) { "features" }
@@ -39,6 +40,7 @@ guard "cucumber", cucumber_options do
     Dir[File.join("**/#{m[1]}.feature")][0] || "features"
   end
 end
+=end
 
 # Note: The cmd option is now required due to the increasing number of ways
 #       rspec may be run, below are examples of the most common uses.
@@ -65,14 +67,14 @@ guard :rspec, cmd: "bundle exec rspec" do
   ruby = dsl.ruby
   dsl.watch_spec_files_for(ruby.lib_files)
 
+
   # Rails files
   rails = dsl.rails(view_extensions: %w(erb haml slim))
   dsl.watch_spec_files_for(rails.app_files)
   dsl.watch_spec_files_for(rails.views)
 
   watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { "spec/features" } ## any change made in controller it will run all tests under specs/features
-  watch(%r{^app/models/(.+)\.rb$}) { "spec/features
-" } ## any change made in model it will run all tests under specs/features
+  watch(%r{^app/models/(.+)\.rb$}) { "spec/features" } ## any change made in model it will run all tests under specs/features
 
   watch(rails.controllers) do |m|
     [

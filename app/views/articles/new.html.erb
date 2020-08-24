@@ -1,6 +1,8 @@
 <section class="container">
   <h1>New Article</h1>
-
+  <% flash.each do |key, message| %>
+    <div class="alert alert-<%= key.eql?('notice') ? 'success' : 'danger' %>"><%= message %></div>
+  <% end %>
   <%= render 'form', article: @article %>
 
   <%= link_to 'Back', articles_path %>

@@ -306,10 +306,9 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (~> 3.32.2)
-  cucumber
   faker (~> 2.13.0)
   guard (~> 2.16.2)
-  guard-cucumber (~> 3.0.0)
+  guard-cucumber
   guard-rspec (~> 4.7.3)
   jbuilder (~> 2.7)
   listen (~> 3.2)

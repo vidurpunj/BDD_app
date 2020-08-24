@@ -36,8 +36,8 @@ group :development, :test do
   gem 'rubocop-faker'
   gem 'guard', '~> 2.16.2'   ## To automatialy run test cases
   gem 'guard-rspec', '~> 4.7.3'
-  gem 'guard-cucumber', '~> 3.0.0'
-
+  gem 'guard-cucumber'
+  # gem 'cucumber' another DSL like capybara but capybara is more popular
 end
 
 group :test do

@@ -31,6 +31,7 @@ class ArticlesController < ApplicationController
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
+        flash.now[:alert] = "Article has not be created"
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end

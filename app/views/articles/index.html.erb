@@ -1,6 +1,6 @@
 <section class="container">
   <% flash.each do |key, message| %>
-    <div class="alert alert-<%= key.eql?('notice') ? 'success' : 'danger' %>"><%= notice %></div>
+    <div class="alert alert-<%= key.eql?('notice') ? 'success' : 'danger' %>"><%= message %></div>
   <% end %>
   <h1>Articles</h1>
 
