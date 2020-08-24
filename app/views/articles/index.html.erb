@@ -1,28 +1,32 @@
-<p id="notice"><%= notice %></p>
+<section class="container">
+  <% flash.each do |key, message| %>
+    <div class="alert alert-<%= key.eql?('notice') ? 'success' : 'danger' %>"><%= notice %></div>
+  <% end %>
+  <h1>Articles</h1>
 
-<h1>Articles</h1>
-
-<table>
-  <thead>
+  <table class="table table-bordered table-striped">
+    <thead>
     <tr>
       <th>Title</th>
       <th>Body</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
         <td><%= article.body %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', article %> |
+        <%= link_to 'Edit', edit_article_path(article) %> |
+        <%= link_to 'Destroy', article, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
-<%= link_to 'New Article', new_article_path %>
+  <br>
+  <%= link_to 'New Article', new_article_path %>
+</section>
+

@@ -23,5 +23,5 @@ Rspec and capybra
  bundle binstub rspec-core
  
  
- yarn add jquery bootstrap popper.js 
- yarn add @fortawesome/fontawesome-free
+- yarn add jquery bootstrap popper.js 
+- yarn add @fortawesome/fontawesome-free
