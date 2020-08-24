@@ -22,6 +22,12 @@ Rspec and capybra
  * generate a binstub for rspec
  bundle binstub rspec-core
  
- 
+# Adding Js Frameworks
 - yarn add jquery bootstrap popper.js 
 - yarn add @fortawesome/fontawesome-free
+
+# Adding Gurad so need not to run test cases manually
+  1. gem 'guard', '~> 2.16.2'   ## To automatialy run test cases
+  2. gem 'guard-rspec', '~> 4.7.3'
+  3. gem 'guard-cucumber', '~> 3.0.0'
+  __guard init__  
