@@ -1,8 +1,4 @@
 <section class="container">
-  <% flash.each do |key, message| %>
-    <div class="alert alert-<%= key.eql?('notice') ? 'success' : 'danger' %>"><%= notice %></div>
-  <% end %>
-
   <p>
     <strong>Title:</strong>
     <%= @article.title %>
