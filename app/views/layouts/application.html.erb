@@ -21,6 +21,18 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active">
+        <%#= link_to "sign out", destroy_user_session_path, method: :delete %>
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to('Login', new_user_session_path) %>
+        </li>
+      <% end %>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
           Contact
@@ -29,6 +41,11 @@
     </ul>
   </div>
 </nav>
+<section class="container">
+  <% flash.each do |key, message| %>
+    <div class="alert alert-<%= key.eql?('notice') ? 'success' : 'danger' %>"><%= message %></div>
+  <% end %>
+</section>
 <%= yield %>
 </body>
 </html>

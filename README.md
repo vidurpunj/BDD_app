@@ -36,3 +36,9 @@ Rspec and capybra
 - create two artcile
 - list the two artciles
 - expect title and body of both test articles
+
+# Devise
+- rails g devise:instal
+- rails generate devise User
+- rails generate devise:views users
+- rails generate devise:controllers users <instead of user>
