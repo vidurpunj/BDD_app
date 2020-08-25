@@ -33,9 +33,9 @@ module BlogAppTdd
     config.generators.system_tests = nil
 
     ## Add rspec
-    config.generators do |g|
-      g.test_framework :rspec
-      g.integration_tool :rspec
-    end
+    # config.generators do |g|
+    #   g.test_framework :rspec
+    #   g.integration_tool :rspec
+    # end
   end
 end
