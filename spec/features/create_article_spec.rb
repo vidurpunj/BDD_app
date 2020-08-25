@@ -32,9 +32,9 @@ RSpec.feature "Create Article" do
     fill_in :Body, with: Faker::Lorem.paragraph_by_chars(number: 256)
     click_button 'Create Article'
 
-    visit "/"
-    click_link 'Destroy'
-    expect(page).to have_content("Article was successfully destroyed.")
+    # visit "/"
+    # click_link 'Destroy'
+    # expect(page).to have_content("Article was successfully destroyed.")
   end
 
 
