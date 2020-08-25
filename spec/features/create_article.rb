@@ -37,4 +37,6 @@ RSpec.feature "Create Article" do
     expect(page).to have_content("Article was successfully destroyed.")
   end
 
+
+
 end
