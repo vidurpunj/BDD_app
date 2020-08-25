@@ -46,4 +46,14 @@ Rspec and capybra
 # Handle article Response
 - 200
 - 303
+
+# User Sign up
+- topi branch
+- create spec
+- Visit root
+- click-signup-link
+- Fill
+username, password and email
+- Invalid Sign up
+ empty username, password or email 
  

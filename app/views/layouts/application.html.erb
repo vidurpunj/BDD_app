@@ -34,9 +34,9 @@
       <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          Contact
-        </a>
+        <% unless user_signed_in? %>
+          <%= link_to "sign up", new_user_registration_path, class: "nav-link" %><br />
+        <% end %>
       </li>
     </ul>
   </div>
