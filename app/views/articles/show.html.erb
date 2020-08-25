@@ -1,14 +1,19 @@
 <section class="container">
-  <p>
-    <strong>Title:</strong>
-    <%= @article.title %>
-  </p>
+  <div class="article-container">
+    <div class="artcile-title">
+      <h2><%= @article.title %></h2>
+    </div>
 
-  <p>
-    <strong>Body:</strong>
-    <%= @article.body %>
-  </p>
-  <%= link_to 'Delete Article', @article, method: :delete %> |
-  <%= link_to 'Edit', edit_article_path(@article) %> |
-  <%= link_to 'Back', articles_path %>
+    <div class="artcile-body">
+      <%= @article.body %>
+      <p class="article-time">
+        <%= local_time(@article.created_at) %>
+      </p>
+    </div>
+    <div class="article-actions">
+      <%= link_to 'Delete Article', @article, method: :delete, data: {confirm: 'Are you sure want to delete'} %> |
+      <%= link_to 'Edit', edit_article_path(@article) %> |
+      <%= link_to 'Back', articles_path %>
+    </div>
+  </div>
 </section>
