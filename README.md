@@ -43,5 +43,7 @@ Rspec and capybra
 - rails generate devise:views users
 - rails generate devise:controllers users <instead of user>
 
-# Show article
-
+# Handle article Response
+- 200
+- 303
+ 
