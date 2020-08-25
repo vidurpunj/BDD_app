@@ -42,3 +42,6 @@ Rspec and capybra
 - rails generate devise User
 - rails generate devise:views users
 - rails generate devise:controllers users <instead of user>
+
+# Show article
+

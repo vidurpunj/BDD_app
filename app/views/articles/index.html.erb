@@ -8,13 +8,14 @@
       <div class="row">
         <div class="col-md-6 bg-light">
           <div>
-            <h2><%= link_to article.title, edit_article_path(article) %></h2>
+            <h2><%= link_to article.title, article %></h2>
           </div>
           <div>
             <%= article.body %>
           </div>
           <!--        <div>-->
           <!--          <%#= link_to article.title, article %> |-->
+<!--          <h2><%#= link_to article.title, edit_article_path(article) %></h2>-->
           <%#= link_to 'Destroy', article, method: :delete, data: {confirm: 'Are you sure?'} %>
           <!--        </div>-->
         </div>
