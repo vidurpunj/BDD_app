@@ -1,0 +1,11 @@
+<body>
+<section class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <% flash.each do |key, message| %>
+        <div class="alert alert-<%= key.eql?('notice') ? 'success' : 'danger' %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
+</section>
