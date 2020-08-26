@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update]
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
@@ -20,6 +20,10 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    unless @article.user == current_user
+      flash[:alert] = 'You can edit your own article.'
+      redirect_to root_path
+    end
   end
 
   # POST /articles
@@ -42,14 +46,19 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+    if @article.user == current_user
+      respond_to do |format|
+        if @article.update(article_params)
+          format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+          format.json { render :show, status: :ok, location: @article }
+        else
+          format.html { render :edit }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      flash[:alert] = 'You can edit your own article.'
+      redirect_to root_path
     end
   end
 
@@ -72,13 +81,14 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def article_params
-      params.require(:article).permit(:title, :body)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def article_params
+    params.require(:article).permit(:title, :body, :user)
+  end
 end

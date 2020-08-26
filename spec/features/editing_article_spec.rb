@@ -2,9 +2,14 @@ require 'rails_helper'
 
 RSpec.feature "Editing an article" do
   before do
+    # 1st user
     password = [*(0..9), *('a'..'z'), *('A'..'Z')].sample(8).join
     @user = User.create({email: Faker::Internet.email, password: password})
     @user.confirm
+    # 2nd user
+    password = [*(0..9), *('a'..'z'), *('A'..'Z')].sample(8).join
+    @john = User.create(email: Faker::Internet.email, password: password)
+    @john.confirm
     @article = Article.create({title: Faker::Book.title , body: Faker::Lorem.paragraph_by_chars(number: 256), user: @user})
   end
 
@@ -33,9 +38,6 @@ RSpec.feature "Editing an article" do
   end
   
   scenario "user logged in and not owner" do
-    password = [*(0..9), *('a'..'z'), *('A'..'Z')].sample(8).join
-    @john = User.create(email: Faker::Internet.email, password: password)
-    @john.confirm
     login_as(@john)
     visit '/'
     click_link @article.title
