@@ -36,4 +36,9 @@ RSpec.feature do
     end
   end
 
+  scenario "create an article with no user signed in" do
+    visit "/"
+    expect(page).not_to have_link("New Article")
+  end
+
 end

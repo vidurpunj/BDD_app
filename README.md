@@ -61,3 +61,5 @@ username, password and email
  - user can have articles
  - article can belongs to one user 
  
+ # Edit own article
+ - disable edit of article for users other than owner  

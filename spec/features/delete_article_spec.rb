@@ -6,6 +6,7 @@ RSpec.feature "Deleting an Article" do
     @user = User.create({email: Faker::Internet.email, password: password})
     @user.confirm
     @article = Article.create(title: Faker::Book.title, body: Faker::Lorem.paragraph_by_chars(number: 256), user: @user)
+    login_as(@user) ## This method provided by warder through devise
   end
 
   scenario "Delete Article"do
