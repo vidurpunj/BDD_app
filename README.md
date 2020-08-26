@@ -55,5 +55,9 @@ Rspec and capybra
 - Fill
 username, password and email
 - Invalid Sign up
- empty username, password or email 
+ empty username, password or email
+ 
+ # has_many
+ - user can have articles
+ - article can belongs to one user 
  
