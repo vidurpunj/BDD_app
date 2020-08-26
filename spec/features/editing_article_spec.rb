@@ -25,7 +25,18 @@ RSpec.feature "Editing an article" do
     expect(page.current_path).to eq(article_path(@article))  ## Match path
   end
 
-  scenario "without Login, user cant't edit/delete an article" do
+  scenario "without Login, user can't edit/delete an article" do
+    visit '/'
+    click_link @article.title
+    expect(page).not_to have_link('Edit')
+    expect(page).not_to have_link('Delete Article')
+  end
+  
+  scenario "user logged in and not owner" do
+    password = [*(0..9), *('a'..'z'), *('A'..'Z')].sample(8).join
+    @john = User.create(email: Faker::Internet.email, password: password)
+    @john.confirm
+    login_as(@john)
     visit '/'
     click_link @article.title
     expect(page).not_to have_link('Edit')
