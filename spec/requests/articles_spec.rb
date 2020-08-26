@@ -70,7 +70,7 @@ RSpec.describe "Articles", type: :request do
   end
 
   describe "DELETE /articles/:id" do
-    context "signed in user not owner" do
+    context "signed in user delete article not owner" do
       before do
         password = [*(0..9), *('a'..'z'), *('A'..'Z')].sample(8).join
         @john = User.create({email: Faker::Internet.email, password: password})
@@ -78,6 +78,7 @@ RSpec.describe "Articles", type: :request do
         login_as(@john)
         delete "/articles/#{@article.id}"
       end
+
       it "redirects to root path" do
         flash_message = 'You are not the owner of this article'
         expect(flash[:alert]).to eq(flash_message)
@@ -85,5 +86,16 @@ RSpec.describe "Articles", type: :request do
       end
     end
 
+    context "signed in user delete article as owner"do
+      before do
+        login_as(@user)
+      end
+
+      it "successfully delete article" do
+        delete "/articles/#{@article.id}"
+        flash_message = 'Article was successfully destroyed.'
+        expect(flash[:notice]).to eq(flash_message)
+      end
+    end
   end
 end
