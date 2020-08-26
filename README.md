@@ -66,3 +66,7 @@ username, password and email
  
  # Resctric delete
  - only owner should be able to delete their own article
+
+# Comment Feature
+- comment in articles
+- article_comment_path: artcile/:id/comment/:id 
