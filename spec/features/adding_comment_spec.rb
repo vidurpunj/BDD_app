@@ -18,8 +18,8 @@ RSpec.feature 'Adding reviews to Article' do
     review = Faker::Lorem.paragraph_by_chars(number: 256)
     fill_in "comment_body", with: review
     click_button 'New Comment'
-    expect(page).to have_content('Comment has been created.')
+    # expect(page).to have_content('Comment has been created.')
     expect(page).to have_content(review)
-    expect(current_path).to eq(article_path(@article))
+    # expect(current_path).to eq(article_path(@article)) ## It do not redirect after adding action cable
   end
 end
