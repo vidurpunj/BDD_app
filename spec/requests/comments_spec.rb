@@ -24,7 +24,7 @@ RSpec.describe "Comments", type: :request do
       end
     end
 
-    context "with a loggedin user" do
+    context "with a logged-in user" do
       before do
         login_as(@fred)
         post "/articles/#{@article.id}/comments", params: { comment: {body: Faker::Lorem.paragraph_by_chars(number: 256)}}
@@ -33,8 +33,9 @@ RSpec.describe "Comments", type: :request do
       it "create the comment successfully" do
         flash_message = 'Comment has been created.'
         expect(flash[:notice]).to eq(flash_message)
-        expect(response).to redirect_to article_path(@article)
-        expect(response).to have_http_status 302
+        # expect(response).to redirect_to article_path(@article)
+        # expect(response).to have_http_status 302
+        expect(response).to have_http_status 200 ## Response in not redirect it 200 ok after adding action cables
       end
     end
   end
