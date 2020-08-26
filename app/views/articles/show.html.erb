@@ -6,8 +6,11 @@
 
     <div class="artcile-body">
       <%= @article.body %>
+      <p class="article-created-by">
+         <%= "created by #{@article.user.email}" %>
+      </p>
       <p class="article-time">
-        <%= local_time(@article.created_at) %>
+       on <%= local_time(@article.created_at) %>
       </p>
     </div>
     <div class="article-actions">

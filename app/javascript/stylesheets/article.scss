@@ -5,13 +5,30 @@
   padding: 20px;
 }
 
-.article-time{
+.article-created-by{
+  margin-top: 20px;
   color: #cc0000;
   position: relative;
-  left: 80%;
+  left: 70%;
   font-size: 18px;
 }
 
+.article-created-by-index{
+  margin-top: 20px;
+  color: #cc0000;
+  position: relative;
+  left: 60%;
+  font-size: 18px;
+  padding: 20px;
+}
+
+.article-time{
+  margin-top: 10px;
+  color: #cc0000;
+  position: relative;
+  left: 70%;
+  font-size: 18px;
+}
 .article-actions{
   color: #cc0000;
   position: relative;
@@ -19,3 +36,4 @@
   left: 80%;
   font-size: 18px;
 }
+
