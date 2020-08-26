@@ -63,3 +63,6 @@ username, password and email
  
  # Edit own article
  - disable edit of article for users other than owner  
+ 
+ # Resctric delete
+ - only owner should be able to delete their own article

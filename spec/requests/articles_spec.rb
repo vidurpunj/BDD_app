@@ -6,6 +6,7 @@ RSpec.describe "Articles", type: :request do
     password = [*(0..9), *('a'..'z'), *('A'..'Z')].sample(8).join
     @user = User.create({email: Faker::Internet.email, password: password})
     @user.confirm
+
     @article = Article.create(title: Faker::Book.title, body: Faker::Lorem.paragraph_by_chars(number: 256), user: @user)
   end
 
@@ -56,7 +57,7 @@ RSpec.describe "Articles", type: :request do
       end
     end
 
-    content "signed in user as owner" do
+    context "signed in user as owner" do
       before do
         login_as(@user)
         get "/articles/#{@article.id}/edit"
@@ -66,8 +67,23 @@ RSpec.describe "Articles", type: :request do
         expect(response).to have_http_status(200)
       end
     end
-
   end
 
+  describe "DELETE /articles/:id" do
+    context "signed in user not owner" do
+      before do
+        password = [*(0..9), *('a'..'z'), *('A'..'Z')].sample(8).join
+        @john = User.create({email: Faker::Internet.email, password: password})
+        @john.confirm
+        login_as(@john)
+        delete "/articles/#{@article.id}"
+      end
+      it "redirects to root path" do
+        flash_message = 'You are not the owner of this article'
+        expect(flash[:alert]).to eq(flash_message)
+        expect(response).to have_http_status(302)
+      end
+    end
 
+  end
 end
