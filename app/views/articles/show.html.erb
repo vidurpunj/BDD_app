@@ -21,7 +21,7 @@
   </div>
   <hr>
   <div class="article-comment-form">
-    <%= form_with url: [@article, @comment], model: @comment, html: {class: 'form-horizontal', role: 'form'} do |f| %>
+    <%= form_with url: [@article, @comment], model: @comment, html: {class: 'form-horizontal', role: 'form'}, local: true do |f| %>
       <% if @comment.errors.any? %>
         <div class="panel panel-danger col-offset-1">
           <div class="panel-heading">

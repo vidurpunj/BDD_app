@@ -22,6 +22,7 @@ RSpec.describe "Articles", type: :request do
 
     context 'GET "/articles/xxxx"' do
       before { get "/articles/xxxx" }
+
       it "handle not-existing article" do
         expect(response).to have_http_status(302)
         flash_message = "The article you are looking for could not be found"

@@ -70,3 +70,5 @@ username, password and email
 # Comment Feature
 - comment in articles
 - article_comment_path: artcile/:id/comment/:id 
+- only signed in user comment
+-  un-signed in users redirect to home page
