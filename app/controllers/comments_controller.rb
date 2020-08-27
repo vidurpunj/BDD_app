@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     else
       flash.now[:alert] = 'Comment has not been created.'
     end
-    # redirect_to article_path(@article)
+    # redirect_to article_path(@article)  ## No need of redirecting after Action cables
   end
 
   private

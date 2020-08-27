@@ -71,4 +71,23 @@ Rails.application.configure do
       user_name: 'myemail@gmail.com',
       password: 'password222'
   }
+
+
+
+=begin
+https://guides.rubyonrails.org/action_cable_overview.html#27214
+
+8.2 Allowed Request Origins
+Action Cable will only accept requests from specified origins, which are passed to the server config as an array. The origins can be instances of strings or regular expressions, against which a check for the match will be performed.
+
+config.action_cable.allowed_request_origins = ['https://rubyonrails.com', %r{http://ruby.*}]
+
+To disable and allow requests from any origin:
+
+config.action_cable.disable_request_forgery_protection = true
+
+By default, Action Cable allows all requests from localhost:3000 when running in the development environment.
+
+
+=end
 end
